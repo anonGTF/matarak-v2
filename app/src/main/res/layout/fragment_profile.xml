@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:scrollbarSize="0dp"
+    tools:context=".ui.profile.ProfileFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/personPlaceholder"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_marginTop="77dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tvProfileName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:textColor="?android:attr/textColorPrimary"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/personPlaceholder" />
+
+        <TextView
+            android:id="@+id/tvProfileEmail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="75dp"
+            android:layout_marginTop="30dp"
+            android:drawablePadding="15dp"
+            android:drawableTint="?android:attr/textColorPrimary"
+            android:textColor="?android:attr/textColorPrimary"
+            android:textSize="18sp"
+            app:drawableStartCompat="@drawable/ic_email"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvProfileName" />
+
+        <TextView
+            android:id="@+id/tvProfileBirthDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="75dp"
+            android:layout_marginTop="20dp"
+            android:drawablePadding="15dp"
+            android:drawableTint="?android:attr/textColorPrimary"
+            android:textColor="?android:attr/textColorPrimary"
+            android:textSize="18sp"
+            app:drawableStartCompat="@drawable/ic_calendar"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvProfileEmail" />
+
+        <TextView
+            android:id="@+id/tvProfileLocation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="75dp"
+            android:layout_marginTop="20dp"
+            android:drawablePadding="15dp"
+            android:drawableTint="?android:attr/textColorPrimary"
+            android:textColor="?android:attr/textColorPrimary"
+            android:textSize="18sp"
+            app:drawableStartCompat="@drawable/ic_location"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvProfileBirthDate" />
+
+        <TextView
+            android:id="@+id/tvProfileGender"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="75dp"
+            android:layout_marginTop="20dp"
+            android:drawablePadding="15dp"
+            android:drawableTint="?android:attr/textColorPrimary"
+            android:textColor="?android:attr/textColorPrimary"
+            android:textSize="18sp"
+            app:drawableStartCompat="@drawable/ic_gender"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvProfileLocation" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnLogout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:layout_marginEnd="10dp"
+            android:text="Logout"
+            android:textAllCaps="false"
+            android:insetBottom="0dp"
+            android:insetTop="0dp"
+            android:elevation="0dp"
+            android:textColor="@android:color/holo_red_dark"
+            app:backgroundTint="?attr/colorOnPrimary"
+            app:strokeColor="@android:color/holo_red_dark"
+            app:strokeWidth="2dp"
+            app:cornerRadius="24dp"
+            app:layout_constraintEnd_toStartOf="@+id/btnEditProfile"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvProfileGender" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnEditProfile"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="28dp"
+            android:text="Edit profil"
+            android:textAllCaps="false"
+            android:insetBottom="0dp"
+            android:insetTop="0dp"
+            app:backgroundTint="@color/matarak"
+            app:cornerRadius="24dp"
+            app:icon="@drawable/ic_left_arrow"
+            app:iconGravity="end"
+            app:iconPadding="30dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/btnLogout"
+            app:layout_constraintTop_toBottomOf="@+id/tvProfileGender" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>

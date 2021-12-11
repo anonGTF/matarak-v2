@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "418525240715",
+    "project_id": "matarak-v2",
+    "storage_bucket": "matarak-v2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:418525240715:android:9e9d8312b653eda3eae38e",
+        "android_client_info": {
+          "package_name": "com.galih.matarakv2"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "418525240715-avti2palamlbb1qgdvmjup0fj44o6pqn.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCL3pA-t67jliOE7tYZccUscmAa6U9tI-o"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "418525240715-avti2palamlbb1qgdvmjup0fj44o6pqn.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
