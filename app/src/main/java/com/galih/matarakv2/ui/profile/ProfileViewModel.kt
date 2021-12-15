@@ -10,6 +10,12 @@ class ProfileViewModel @Inject constructor(
     private val firebase: FirebaseUtils
 ) : BaseViewModel() {
 
+    fun getUserEmail() = firebase.getUserEmail()
+
+    fun getProfile() = callApiReturnLiveData(
+        apiCall = { firebase.getProfile() }
+    )
+
     fun logout() = callApiReturnLiveData(
         apiCall = { firebase.logout() }
     )

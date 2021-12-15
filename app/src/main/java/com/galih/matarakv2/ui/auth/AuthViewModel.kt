@@ -18,6 +18,6 @@ class AuthViewModel @Inject constructor(
         apiCall = { firebase.register(name, email, password) }
     )
 
-    fun validateIsLoggedIn(): Boolean = firebase.auth.currentUser != null
+    fun validateIsLoggedIn() = firebase.isLoggedIn()
 
 }
