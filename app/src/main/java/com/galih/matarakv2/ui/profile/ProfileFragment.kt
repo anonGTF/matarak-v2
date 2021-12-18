@@ -22,6 +22,10 @@ class ProfileFragment : BaseFragment<FragmentProfileBinding>() {
     override fun setup() {
         viewModel.getProfile().observe(viewLifecycleOwner, setProfileObserver())
 
+        binding.btnEditProfil.setOnClickListener {
+            startActivity(Intent(binding.root.context, EditProfileActivity::class.java))
+        }
+
         binding.btnLogout.setOnClickListener {
             viewModel.logout().observe(viewLifecycleOwner, setLogoutObserver())
         }

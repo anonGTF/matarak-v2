@@ -3,20 +3,25 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Lenovo/programming/android/MatarakV2/app/src/main/res/drawable-v24/ic_arrow_forward.xml" value="0.26614583333333336" />
+        <entry key="..\:/Users/Lenovo/programming/android/MatarakV2/app/src/main/res/drawable/ic_arrow_forward.xml" value="0.26614583333333336" />
         <entry key="..\:/Users/Lenovo/programming/android/MatarakV2/app/src/main/res/drawable/ic_calendar.xml" value="0.26205128205128203" />
         <entry key="..\:/Users/Lenovo/programming/android/MatarakV2/app/src/main/res/drawable/ic_home.xml" value="0.26205128205128203" />
         <entry key="..\:/Users/Lenovo/programming/android/MatarakV2/app/src/main/res/drawable/ic_visibility.xml" value="0.26205128205128203" />
         <entry key="..\:/Users/Lenovo/programming/android/MatarakV2/app/src/main/res/drawable/show_password_selector.xml" value="0.26205128205128203" />
         <entry key="..\:/Users/Lenovo/programming/android/MatarakV2/app/src/main/res/drawable/splash_brand_logo.xml" value="0.26205128205128203" />
         <entry key="..\:/Users/Lenovo/programming/android/MatarakV2/app/src/main/res/layout/activity_detail_article.xml" value="0.20606884057971014" />
+        <entry key="..\:/Users/Lenovo/programming/android/MatarakV2/app/src/main/res/layout/activity_edit_profile.xml" value="0.25" />
         <entry key="..\:/Users/Lenovo/programming/android/MatarakV2/app/src/main/res/layout/activity_login.xml" value="0.2" />
         <entry key="..\:/Users/Lenovo/programming/android/MatarakV2/app/src/main/res/layout/activity_main.xml" value="0.1793478260869565" />
         <entry key="..\:/Users/Lenovo/programming/android/MatarakV2/app/src/main/res/layout/activity_register.xml" value="0.2164855072463768" />
+        <entry key="..\:/Users/Lenovo/programming/android/MatarakV2/app/src/main/res/layout/activity_result.xml" value="0.25" />
         <entry key="..\:/Users/Lenovo/programming/android/MatarakV2/app/src/main/res/layout/fragment_detection_history.xml" value="0.12158054711246201" />
         <entry key="..\:/Users/Lenovo/programming/android/MatarakV2/app/src/main/res/layout/fragment_home.xml" value="0.2164855072463768" />
         <entry key="..\:/Users/Lenovo/programming/android/MatarakV2/app/src/main/res/layout/fragment_nearest_hospital.xml" value="0.2164855072463768" />
         <entry key="..\:/Users/Lenovo/programming/android/MatarakV2/app/src/main/res/layout/fragment_profile.xml" value="0.264" />
         <entry key="..\:/Users/Lenovo/programming/android/MatarakV2/app/src/main/res/layout/item_banner.xml" value="0.2164855072463768" />
+        <entry key="..\:/Users/Lenovo/programming/android/MatarakV2/app/src/main/res/layout/item_detection.xml" value="0.264" />
         <entry key="..\:/Users/Lenovo/programming/android/MatarakV2/app/src/main/res/layout/item_list_article.xml" value="0.2164855072463768" />
         <entry key="..\:/Users/Lenovo/programming/android/MatarakV2/app/src/main/res/menu/bottom_nav_menu.xml" value="0.25" />
       </map>
