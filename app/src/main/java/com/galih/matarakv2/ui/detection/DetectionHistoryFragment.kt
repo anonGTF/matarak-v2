@@ -3,7 +3,7 @@ package com.galih.matarakv2.ui.detection
 import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.fragment.app.viewModels
+import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.galih.matarakv2.base.BaseFragment
 import com.galih.matarakv2.data.model.DetectionResult
@@ -16,7 +16,7 @@ class DetectionHistoryFragment : BaseFragment<FragmentDetectionHistoryBinding>()
     override val bindingInflater: (LayoutInflater, ViewGroup?, Boolean) -> FragmentDetectionHistoryBinding
         = FragmentDetectionHistoryBinding::inflate
     private val historyAdapter: HistoryAdapter by lazy { HistoryAdapter() }
-    private val viewModel: DetectionViewModel by viewModels()
+    private val viewModel: DetectionViewModel by activityViewModels()
 
     override fun setup() {
         setupRecyclerView()

@@ -1,5 +1,6 @@
 package com.galih.matarakv2.base
 
+import android.app.AlertDialog
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -9,6 +10,8 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.viewbinding.ViewBinding
 import com.galih.matarakv2.utils.Resource
+import com.github.florent37.runtimepermission.PermissionResult
+import com.github.florent37.runtimepermission.kotlin.askPermission
 
 abstract class BaseFragment<VB : ViewBinding> : Fragment() {
 
@@ -50,6 +53,34 @@ abstract class BaseFragment<VB : ViewBinding> : Fragment() {
                 is Resource.Success -> onSuccess(data)
                 is Resource.Error -> onError(data)
                 is Resource.Loading -> onLoading(data)
+            }
+        }
+    }
+
+    protected fun askPermissions(vararg permissions: String, onAccepted: (PermissionResult) -> Unit) {
+        askPermission(*permissions) {
+            if (it.isAccepted) {
+                onAccepted.invoke(it)
+            }
+        }.onDeclined { e ->
+            if (e.hasDenied()){
+                e.denied.forEach { _ ->
+                    AlertDialog.Builder(requireContext())
+                        .setMessage("Mohon menyetujui permintaan kami")
+                        .setPositiveButton("Yes"){ _, _ ->
+                            e.askAgain()
+                        }
+                        .setNegativeButton("No"){ dialog, _ ->
+                            dialog.dismiss()
+                        }
+                        .show()
+                }
+            }
+
+            if (e.hasForeverDenied()){
+                e.foreverDenied.forEach { _ ->
+                    e.goToSettings()
+                }
             }
         }
     }

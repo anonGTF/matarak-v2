@@ -23,7 +23,7 @@ android {
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         buildConfigField 'String', 'API_MAPS_URL', '"https://maps.googleapis.com/maps/api/place/"'
-        buildConfigField 'String', 'MAPS_API_KEY', '"AIzaSyBZjkeTmDGe6LjuwcnR5LTzfL5YWRqSzVo"'
+        buildConfigField 'String', 'MAPS_API_KEY', '"AIzaSyB2pRTJNGQVvGaSeB0NYhTvzTZOCw5S5KY"'
     }
     buildFeatures{
         viewBinding true
@@ -56,10 +56,17 @@ dependencies {
     implementation 'androidx.navigation:navigation-fragment-ktx:2.3.5'
     implementation 'androidx.navigation:navigation-ui-ktx:2.3.5'
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+
     implementation 'com.google.android.gms:play-services-maps:18.0.1'
+    implementation 'com.google.android.gms:play-services-location:19.0.0'
 
     implementation 'de.hdodenhof:circleimageview:3.1.0'
     implementation 'com.squareup.picasso:picasso:2.71828'
+
+    implementation 'com.squareup.retrofit2:retrofit:2.9.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
+    implementation "com.squareup.okhttp3:logging-interceptor:4.9.0"
+    implementation "com.squareup.okhttp3:okhttp:4.9.0"
 
     implementation platform('com.google.firebase:firebase-bom:28.0.1')
     implementation 'com.google.firebase:firebase-analytics-ktx'

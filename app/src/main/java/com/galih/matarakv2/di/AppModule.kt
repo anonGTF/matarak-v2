@@ -2,6 +2,8 @@ package com.galih.matarakv2.di
 
 import android.content.Context
 import com.galih.matarakv2.data.firebase.FirebaseUtils
+import com.galih.matarakv2.data.remote.MapsApi
+import com.galih.matarakv2.data.remote.RetrofitInstance
 import com.galih.matarakv2.utils.Classifier
 import dagger.Module
 import dagger.Provides
@@ -18,6 +20,10 @@ object AppModule {
     @Provides
     @Singleton
     fun provideFirebaseUtils(): FirebaseUtils = FirebaseUtils
+
+    @Provides
+    @Singleton
+    fun provideApi(): MapsApi = RetrofitInstance.createApi()
 
     @Provides
     @Singleton

@@ -3,7 +3,7 @@ package com.galih.matarakv2.ui.home
 import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.fragment.app.viewModels
+import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.galih.matarakv2.base.BaseFragment
 import com.galih.matarakv2.data.model.Article
@@ -18,7 +18,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
         = FragmentHomeBinding::inflate
     private val articleAdapter: ArticleAdapter by lazy { ArticleAdapter() }
     private val bannerAdapter: BannerAdapter by lazy { BannerAdapter() }
-    private val viewModel: HomeViewModel by viewModels()
+    private val viewModel: HomeViewModel by activityViewModels()
 
     override fun setup() {
         setupRecyclerView()

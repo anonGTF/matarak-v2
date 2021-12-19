@@ -1,9 +1,10 @@
 package com.galih.matarakv2.ui.profile
 
 import android.content.Intent
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.fragment.app.viewModels
+import androidx.fragment.app.activityViewModels
 import com.galih.matarakv2.base.BaseFragment
 import com.galih.matarakv2.data.model.User
 import com.galih.matarakv2.databinding.FragmentProfileBinding
@@ -17,7 +18,7 @@ class ProfileFragment : BaseFragment<FragmentProfileBinding>() {
 
     override val bindingInflater: (LayoutInflater, ViewGroup?, Boolean) -> FragmentProfileBinding
         = FragmentProfileBinding::inflate
-    private val viewModel: ProfileViewModel by viewModels()
+    private val viewModel: ProfileViewModel by activityViewModels()
     private var data: User? = null
 
     override fun setup() {
@@ -32,6 +33,7 @@ class ProfileFragment : BaseFragment<FragmentProfileBinding>() {
         binding.btnLogout.setOnClickListener {
             viewModel.logout().observe(viewLifecycleOwner, setLogoutObserver())
         }
+        Log.d("coba", "setup: $viewModel")
     }
 
     private fun setProfileObserver() = setObserver<User?>(
@@ -41,6 +43,7 @@ class ProfileFragment : BaseFragment<FragmentProfileBinding>() {
             populateData()
         },
         onError = { response ->
+            Log.d("coba", "setProfileObserver: ${response.data}")
             binding.progressBar.gone()
             showToast(response.message.toString())
         },

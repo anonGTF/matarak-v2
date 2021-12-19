@@ -7,4 +7,5 @@
     <string name="percent">%</string>
     <string name="desc_image_input">desc_image_input</string>
     <string name="simpan_perubahan">Simpan Perubahan</string>
+    <string name="title_activity_maps">MapsActivity</string>
 </resources>

@@ -4,6 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.galih.matarakv2">
 
+    <!--
+         The ACCESS_COARSE/FINE_LOCATION permissions are not required to use
+         Google Maps Android API v2, but you must specify either coarse or fine
+         location permissions for the "MyLocation" functionality.
+    -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+
     <dist:module dist:instant="true" />
 
     <uses-permission android:name="android.permission.INTERNET" />
@@ -21,7 +28,6 @@
         android:required="false" />
 
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
     <application
         android:name=".MatarakApplication"
@@ -32,6 +38,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MatarakV2"
         tools:replace="android:theme">
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="@string/google_maps_key" />
+
         <activity
             android:name=".ui.detection.ResultActivity"
             android:exported="false" />
@@ -61,10 +71,6 @@
         <activity
             android:name="com.canhub.cropper.CropImageActivity"
             android:theme="@style/Base.Theme.AppCompat" />
-
-        <meta-data
-            android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyDG2i9lWPkbMuBNdLuWbjJCutDLLU1DWHw" />
     </application>
 
 </manifest>
