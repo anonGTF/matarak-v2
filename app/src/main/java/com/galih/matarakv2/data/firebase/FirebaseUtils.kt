@@ -1,5 +1,6 @@
 package com.galih.matarakv2.data.firebase
 
+import android.net.Uri
 import android.util.Log
 import com.galih.matarakv2.data.model.Article.Companion.toArticle
 import com.galih.matarakv2.data.model.Banner.Companion.toBanner
@@ -86,11 +87,25 @@ object FirebaseUtils {
         }
     )
 
+    suspend fun uploadProfileImage(data: Uri): String? = safeCallFirebase(
+        firebaseCall = {
+            val ref = storage.getReference(USER_COLLECTION).child(System.currentTimeMillis().toString())
+            ref.putFile(data).await().storage.downloadUrl.await().toString()
+        }
+    )
+
     suspend fun saveImage(result: DetectionResult) = safeCallFirebase(
         firebaseCall = {
             db.collection(USER_COLLECTION).document(getUserId()).collection(HISTORY_COLLECTION)
                 .add(result).await().get().await().toDetectionResult()
         }
+    )
+
+    suspend fun saveProfile(data: User) = safeCallFirebase(
+        firebaseCall = {
+            db.collection(USER_COLLECTION).document(getUserId()).set(data).await()
+        },
+        customMessage = "Error save profile for user"
     )
 
     private suspend fun <T> safeCallFirebase(

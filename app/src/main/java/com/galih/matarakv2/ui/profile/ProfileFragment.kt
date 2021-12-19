@@ -18,12 +18,15 @@ class ProfileFragment : BaseFragment<FragmentProfileBinding>() {
     override val bindingInflater: (LayoutInflater, ViewGroup?, Boolean) -> FragmentProfileBinding
         = FragmentProfileBinding::inflate
     private val viewModel: ProfileViewModel by viewModels()
+    private var data: User? = null
 
     override fun setup() {
         viewModel.getProfile().observe(viewLifecycleOwner, setProfileObserver())
 
         binding.btnEditProfil.setOnClickListener {
-            startActivity(Intent(binding.root.context, EditProfileActivity::class.java))
+            val intent = Intent(binding.root.context, EditProfileActivity::class.java)
+            intent.putExtra(EditProfileActivity.EXTRA_DATA, data)
+            startActivity(intent)
         }
 
         binding.btnLogout.setOnClickListener {
@@ -34,7 +37,8 @@ class ProfileFragment : BaseFragment<FragmentProfileBinding>() {
     private fun setProfileObserver() = setObserver<User?>(
         onSuccess = { response ->
             binding.progressBar.gone()
-            populateData(response.data)
+            data = response.data
+            populateData()
         },
         onError = { response ->
             binding.progressBar.gone()
@@ -43,7 +47,7 @@ class ProfileFragment : BaseFragment<FragmentProfileBinding>() {
         onLoading = { binding.progressBar.visible() }
     )
 
-    private fun populateData(data: User?) {
+    private fun populateData() {
         binding.apply {
             tvName.text = data?.name
             tvEmail.text = viewModel.getUserEmail()

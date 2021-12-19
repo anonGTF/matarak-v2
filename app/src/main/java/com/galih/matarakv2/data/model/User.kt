@@ -18,10 +18,10 @@ data class User(val userId: String,
         fun DocumentSnapshot.toUser(): User? {
             return try {
                 val name = getString("name")!!
-                val birthDate = getString("birthdate")!!
+                val birthDate = getString("birthDate")!!
                 val address = getString("address")!!
                 val gender = getBoolean("gender")!!
-                val imageUrl = getString("profile_image")!!
+                val imageUrl = getString("imageUrl")!!
                 User(id, name, birthDate, address, gender, imageUrl)
             } catch (e: Exception) {
                 Log.e(TAG, "Error converting user profile", e)
@@ -34,13 +34,13 @@ data class User(val userId: String,
 
         fun getDefaultUser(name: String) = hashMapOf(
             "name" to name,
-            "profile_image" to DEFAULT_PROFILE_PICTURE,
-            "birthdate" to NOT_FILLED_YET,
+            "imageUrl" to DEFAULT_PROFILE_PICTURE,
+            "birthDate" to NOT_FILLED_YET,
             "address" to NOT_FILLED_YET,
-            "gender" to false
+            "gender" to true
         )
 
-        private const val DEFAULT_PROFILE_PICTURE = "https://firebasestorage.googleapis.com/v0/b/matarak-v2.appspot.com/o/person_placeholder.png?alt=media&token=077106ea-d808-40aa-933e-6023258cfbc5"
+        const val DEFAULT_PROFILE_PICTURE = "https://firebasestorage.googleapis.com/v0/b/matarak-v2.appspot.com/o/person_placeholder.png?alt=media&token=077106ea-d808-40aa-933e-6023258cfbc5"
         private const val NOT_FILLED_YET = "Not filled yet"
         private const val TAG = "User"
     }
