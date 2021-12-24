@@ -29,6 +29,8 @@ class EditProfileActivity : BaseActivity<ActivityEditProfileBinding>() {
     private var gender = false
 
     override fun setup() {
+        setTitle("Edit Profil")
+        setupBackButton()
         getDataFromBundle()
         setupDropdown()
         setupDatePicker()
@@ -115,7 +117,9 @@ class EditProfileActivity : BaseActivity<ActivityEditProfileBinding>() {
     private fun setupSaveObserver() = setObserver<Void?>(
         onSuccess = {
             binding.progressBar.gone()
-            startActivity(Intent(this, MainActivity::class.java))
+            intent = Intent(this, MainActivity::class.java)
+            intent.putExtra(MainActivity.EXTRA_DATA, MainActivity.ID_GO_TO_PROFILE)
+            startActivity(intent)
         },
         onError = {
             binding.progressBar.gone()

@@ -18,6 +18,8 @@ class DetailArticleActivity : BaseActivity<ActivityDetailArticleBinding>() {
         = ActivityDetailArticleBinding::inflate
 
     override fun setup() {
+        setTitle("Detail Artikel")
+        setupBackButton()
         setupBackButton()
         val bundle = intent.extras
         if (bundle != null) {

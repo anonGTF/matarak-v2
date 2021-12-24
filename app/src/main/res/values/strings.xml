@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">MatarakV2</string>
-    <string name="for_further_action_you_can_check_with_the_hospital">For further action you can check with the hospital</string>
-    <string name="click_here_to_find_the_nearest_hospital">Click here to find the nearest hospital</string>
+    <string name="for_further_action_you_can_check_with_the_hospital">Untuk informasi lebih lanjut, silahkan menuju rumah sakit terdekat</string>
+    <string name="click_here_to_find_the_nearest_hospital">Klik tombol di bawah untuk melihat rumah sakit terdekat</string>
     <string name="decimal_formatter">%1$.2f %%</string>
     <string name="cataract">Cataract</string>
     <string name="percent">%</string>

@@ -56,21 +56,21 @@ abstract class BaseActivity<VB: ViewBinding>: AppCompatActivity() {
                 onAccepted.invoke(it)
             }
         }.onDeclined { e ->
-            if (e.hasDenied()){
+            if (e.hasDenied()) {
                 e.denied.forEach { _ ->
                     AlertDialog.Builder(this)
                         .setMessage("Mohon menyetujui permintaan kami")
-                        .setPositiveButton("Yes"){ _, _ ->
+                        .setPositiveButton("Ya"){ _, _ ->
                             e.askAgain()
                         }
-                        .setNegativeButton("No"){ dialog, _ ->
+                        .setNegativeButton("Tidak"){ dialog, _ ->
                             dialog.dismiss()
                         }
                         .show()
                 }
             }
 
-            if (e.hasForeverDenied()){
+            if (e.hasForeverDenied()) {
                 e.foreverDenied.forEach { _ ->
                     e.goToSettings()
                 }
@@ -91,6 +91,10 @@ abstract class BaseActivity<VB: ViewBinding>: AppCompatActivity() {
     protected fun setupBackButton() {
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.setDisplayShowHomeEnabled(true)
+    }
+
+    protected fun setTitle(title: String) {
+        supportActionBar?.title = title
     }
 
     protected fun showToast(message: String) =

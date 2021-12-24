@@ -26,14 +26,15 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
 
     override val bindingInflater: (LayoutInflater) -> ActivityMainBinding
         = ActivityMainBinding::inflate
+    private var shouldGoTo: Int = 0
+    private val homeFragment = HomeFragment()
+    private val hospitalFragment = NearestHospitalFragment()
+    private val historyFragment = DetectionHistoryFragment()
+    private val profileFragment = ProfileFragment()
 
     override fun setup() {
-        val homeFragment = HomeFragment()
-        val hospitalFragment = NearestHospitalFragment()
-        val historyFragment = DetectionHistoryFragment()
-        val profileFragment = ProfileFragment()
-
-        setCurrentFragment(homeFragment)
+        getDataFromBundle()
+        setInitialFragment()
 
         binding.bottomNavigationView.setOnNavigationItemSelectedListener {
             when (it.itemId) {
@@ -57,6 +58,27 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
                             .setMode(Options.Mode.Picture))
                 }
             )
+        }
+    }
+
+    private fun setInitialFragment() {
+        when (shouldGoTo) {
+            ID_GO_TO_MAPS -> {
+                setCurrentFragment(hospitalFragment)
+                binding.bottomNavigationView.selectedItemId = R.id.miHospital
+            }
+            ID_GO_TO_PROFILE -> {
+                setCurrentFragment(profileFragment)
+                binding.bottomNavigationView.selectedItemId = R.id.miProfile
+            }
+            else -> setCurrentFragment(homeFragment)
+        }
+    }
+
+    private fun getDataFromBundle() {
+        val bundle = intent.extras
+        if (bundle != null) {
+            shouldGoTo = intent.getIntExtra(EXTRA_DATA, 0)
         }
     }
 
@@ -93,5 +115,8 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
 
     companion object {
         private const val CAMERA_REQUEST_CODE = 2
+        const val EXTRA_DATA = "extra_data"
+        const val ID_GO_TO_MAPS = 1
+        const val ID_GO_TO_PROFILE = 2
     }
 }

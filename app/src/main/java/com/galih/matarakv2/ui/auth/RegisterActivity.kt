@@ -17,6 +17,7 @@ class RegisterActivity : BaseActivity<ActivityRegisterBinding>() {
     private val viewModel: AuthViewModel by viewModels()
 
     override fun setup() {
+        setTitle("Register")
         form {
             useRealTimeValidation()
             input(binding.etName, name = null) {

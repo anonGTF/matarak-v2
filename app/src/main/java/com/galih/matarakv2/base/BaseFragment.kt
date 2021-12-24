@@ -63,7 +63,7 @@ abstract class BaseFragment<VB : ViewBinding> : Fragment() {
                 onAccepted.invoke(it)
             }
         }.onDeclined { e ->
-            if (e.hasDenied()){
+            if (e.hasDenied()) {
                 e.denied.forEach { _ ->
                     AlertDialog.Builder(requireContext())
                         .setMessage("Mohon menyetujui permintaan kami")
@@ -77,7 +77,7 @@ abstract class BaseFragment<VB : ViewBinding> : Fragment() {
                 }
             }
 
-            if (e.hasForeverDenied()){
+            if (e.hasForeverDenied()) {
                 e.foreverDenied.forEach { _ ->
                     e.goToSettings()
                 }

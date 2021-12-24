@@ -18,6 +18,7 @@ class LoginActivity : BaseActivity<ActivityLoginBinding>() {
     private val viewModel: AuthViewModel by viewModels()
 
     override fun setup() {
+        setTitle("Login")
         if (viewModel.validateIsLoggedIn()) {
             startActivity(Intent(this, MainActivity::class.java))
             finish()

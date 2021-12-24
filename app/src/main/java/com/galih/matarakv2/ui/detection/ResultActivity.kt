@@ -1,6 +1,7 @@
 package com.galih.matarakv2.ui.detection
 
 import android.app.Activity
+import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.view.LayoutInflater
@@ -9,6 +10,7 @@ import com.canhub.cropper.CropImage
 import com.galih.matarakv2.base.BaseActivity
 import com.galih.matarakv2.data.model.DetectionResult
 import com.galih.matarakv2.databinding.ActivityResultBinding
+import com.galih.matarakv2.ui.main.MainActivity
 import com.squareup.picasso.Picasso
 import dagger.hilt.android.AndroidEntryPoint
 import java.io.ByteArrayOutputStream
@@ -22,9 +24,13 @@ class ResultActivity : BaseActivity<ActivityResultBinding>() {
     private val viewModel: DetectionViewModel by viewModels()
 
     override fun setup() {
+        setTitle("Hasil Deteksi")
+        setupBackButton()
         getDataFromBundle()
         binding.btnGoesToHospital.setOnClickListener {
-            setResult(Activity.RESULT_OK)
+            intent = Intent(this, MainActivity::class.java)
+            intent.putExtra(MainActivity.EXTRA_DATA, MainActivity.ID_GO_TO_MAPS)
+            startActivity(intent)
             finish()
         }
     }
@@ -86,9 +92,9 @@ class ResultActivity : BaseActivity<ActivityResultBinding>() {
 
     private fun getMessage(title: String): CharSequence =
         if (title == CATARACT) {
-            "Unfortunately, You are"
+            "Mohon maaf, Anda"
         } else {
-            "Congratulation! You are"
+            "Selamat! Anda"
         }
 
     companion object {
